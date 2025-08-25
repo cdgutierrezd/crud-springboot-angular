@@ -1,0 +1,8 @@
+<app-register 
+(userRegistered)="onUserRegistered($event)"
+(userEdited)="onUserUpdate()"
+(cancelEdit)="onCancel()"
+[userToEdit] = "userToEdit">
+</app-register>
+
+<app-user-table [users]="(users$ | async) || []" (userDeleted)="onUserDeleted($event)" (editUser)="onUserEdited($event)"></app-user-table>

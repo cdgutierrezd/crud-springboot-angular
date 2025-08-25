@@ -1,0 +1,25 @@
+<table>
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>PHONE NUMBER</th>
+            <th>OPTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (user of users; track user.id) {
+        <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>
+                <div>
+                    <button (click)="onEdit(user)">EDIT</button>
+                    <button (click)="onDeleteUser(user.id)">DELETE</button>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+<form [formGroup]="formRegister" (ngSubmit)="save()" class="form-container">
+    <h1>CREATE USER</h1>
+    <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-input" id="name" type="text" placeholder="Name" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" id="email" type="email" placeholder="Email" formControlName="email">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="phoneNumber">PhoneNumber</label>
+        <input class="form-input" id="phoneNumber" type="text" placeholder="PhoneNumber" formControlName="phoneNumber">
+    </div>
+    <div class="form-action">
+        @if (userToEdit) {
+        <button type="button" (click)="update(userToEdit)" class="btn-edit">EDIT</button>
+        <button type="button" (click)="cancel()" class="btn-cancel">CANCEL</button>
+        }@else {
+        <button class="btn-save">SAVE</button>
+        }
+    </div>
+
+
+</form>
