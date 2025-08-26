@@ -1,25 +1,28 @@
-<table>
-    <thead>
-        <tr>
-            <th>NAME</th>
-            <th>EMAIL</th>
-            <th>PHONE NUMBER</th>
-            <th>OPTIONS</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (user of users; track user.id) {
-        <tr>
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.phoneNumber}}</td>
-            <td>
-                <div>
-                    <button (click)="onEdit(user)">EDIT</button>
-                    <button (click)="onDeleteUser(user.id)">DELETE</button>
-                </div>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div class="table-container">
+    <input type="text" placeholder="Search user" [(ngModel)]="searchTerm" class="search-input">
+    <table class="user-table">
+        <thead class="user-table-head">
+            <tr class="user-table-head-row">
+                <th class="user-table-head-cell">NAME</th>
+                <th class="user-table-head-cell">EMAIL</th>
+                <th class="user-table-head-cell">PHONE NUMBER</th>
+                <th class="user-table-head-cell">OPTIONS</th>
+            </tr>
+        </thead>
+        <tbody class="user-table-body">
+            @for (user of filteredUsers(); track user.id) {
+            <tr class="user-table-body-row">
+                <td class="user-table-body-cell">{{user.name}}</td>
+                <td class="user-table-body-cell">{{user.email}}</td>
+                <td class="user-table-body-cell">{{user.phoneNumber}}</td>
+                <td class="user-table-body-cell">
+                    <div class="user-table-buttons">
+                        <button class="btn-edit" (click)="onEdit(user)">EDIT</button>
+                        <button class="btn-delete" (click)="onDeleteUser(user.id)">DELETE</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

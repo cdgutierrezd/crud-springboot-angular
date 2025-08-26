@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { UserService } from '../../services/user.service';
 import { UserRequest } from '../../models/user-request.model';
 import { UserResponse } from '../../models/user-response.model';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -51,6 +52,9 @@ export class RegisterComponent {
 
   loadRequest(): UserRequest {
     const data = this.formRegister.value;
+    if(isNaN(data.phoneNumber)){
+      throw new Error("The phone number invalid");
+    }
     const request: UserRequest = {
       name: data.name ?? '',
       email: data.email ?? '',

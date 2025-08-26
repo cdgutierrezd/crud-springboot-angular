@@ -1,6 +1,6 @@
 .form-container{
     max-width: 400px;
-    margin: 60px auto;
+    margin: 20px auto;
     padding: 20px;
     border: 1px solid;
     border-radius: 12px;
@@ -21,6 +21,7 @@
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: #333;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .form-input{
     width: 100%;
